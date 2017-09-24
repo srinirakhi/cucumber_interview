@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: rgb(2, 56, 95);
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+  padding: 10px;
+}
+
+fieldset {
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+
+form {
+}
+
+label {
+  text-align: justify;
+}
+
+.error {
+  color: red;
+}
