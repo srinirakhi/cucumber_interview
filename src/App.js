@@ -28,6 +28,19 @@ class App extends Component {
       email: e.target.value
     });
   }
+
+  onPasswordChange = (e) => {
+    this.setState({
+      password: e.target.value
+    });
+  }
+
+  onPasswordConfirmChange = (e) => {
+    this.setState({
+      passwordConfirm: e.target.value
+    });
+  }
+
   onAlreadyHaveAccountChange = (e) => {
     this.setState({
       alreadyHaveAccount: e.target.value === 'true'
@@ -72,6 +85,8 @@ class App extends Component {
     let firstName = this.state.firstName != null ? this.state.firstName.trim() : '';
     let lastName = this.state.lastName != null ? this.state.lastName.trim() : '';
     let email = this.state.email != null ? this.state.email.trim() : '';
+    let password = this.state.password != null ? this.state.password.trim() : '';
+    let passwordConfirm = this.state.passwordConfirm!= null ? this.state.passwordConfirm.trim() : '';
     let account = this.state.account != null ? this.state.account.trim() : '';
     let age = (this.state.age != null && !isNaN(this.state.age)) ? this.state.age : 0;
     let phone = this.state.phone != null ? this.state.phone.trim() : '';
@@ -90,6 +105,15 @@ class App extends Component {
     }
     if (!this.validateEmail(email)) {
       return <span className="error">A valid email is required</span>;
+    }
+    if (password.length < 8) {
+      return <span className="error">Password must be greater than 8 characters</span>;
+    }
+    if (password.length > 30) {
+      return <span className="error">Password cannot be longer than 30 characters</span>;
+    }
+    if (password != passwordConfirm) {
+      return <span className="error">Passwords must match!</span>;
     }
     if (this.state.alreadyHaveAccount && account.length < 9) {
       return <span className="error">A TPMR brokerage account number is required</span>;
@@ -146,6 +170,10 @@ class App extends Component {
             <input id="lastName" type="text" onChange={this.onLastNameChange} ref="lastName" />
             <label htmlFor="email">Email</label>
             <input id="email" type="text" onChange={this.onEmailNameChange} ref="emailName" />
+            <label htmlFor="password">Password</label>
+            <input id="password" type="password" onChange={this.onPasswordChange} ref="password" />
+            <label htmlFor="passwordConfirm">Confirm Password</label>
+            <input id="passwordConfirm" placeholder="please retype your password" type="password" onChange={this.onPasswordConfirmChange} ref="passwordConfirm" />
             <label htmlFor="alreadyHaveAccount">Do you already have a brokerage account with us?</label>
             <input name="alreadyHaveAccount" checked={this.state.alreadyHaveAccount} onChange={this.onAlreadyHaveAccountChange} id="alreadyHaveAccount" type="radio" value={true} /> Yes
             <input name="alreadyHaveAccount" checked={!this.state.alreadyHaveAccount} onChange={this.onAlreadyHaveAccountChange} type="radio" value={false} /> No
