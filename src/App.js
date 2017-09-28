@@ -179,7 +179,7 @@ class App extends Component {
             <input name="alreadyHaveAccount" checked={!this.state.alreadyHaveAccount} onChange={this.onAlreadyHaveAccountChange} type="radio" value={false} /> No
             {accountNumberField}
             <label htmlFor="age">Age</label>
-            <input type="text" onChange={this.onAgeChange} id="phone" />
+            <input type="text" onChange={this.onAgeChange} id="age" />
             <label htmlFor="phone">Phone</label>
             <input type="text" onChange={this.onPhoneChange} id="phone" />
             <label htmlFor="ssn">Social Security Number</label>
