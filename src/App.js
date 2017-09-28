@@ -107,7 +107,7 @@ class App extends Component {
       return <span className="error">A valid email is required</span>;
     }
     if (password.length < 8) {
-      return <span className="error">Password must be greater than 8 characters</span>;
+      return <span className="error">Password must be greater than or equal to 8 characters</span>;
     }
     if (password.length > 30) {
       return <span className="error">Password cannot be longer than 30 characters</span>;
