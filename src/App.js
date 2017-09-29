@@ -132,7 +132,7 @@ class App extends Component {
     }
 
     return (<div>
-      <button onClick={this.submit}>Submit</button>
+      <button id="submit" onClick={this.submit}>Submit</button>
     </div>);
   }
 
