@@ -29,3 +29,11 @@ label {
 .error {
   color: red;
 }
+
+.hobbies-list {
+  text-align: left;
+}
+
+.hobbies-list-container button {
+  margin-left: 15px;
+}
